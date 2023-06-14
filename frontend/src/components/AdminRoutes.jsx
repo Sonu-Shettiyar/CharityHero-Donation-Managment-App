@@ -6,8 +6,8 @@ const AdminRoutes = () => {
       <div>
           <Routes>
           <Route path="/posts/show-requested" element={<RequestedPost/>}></Route>
-          <Route path="/posts/show-all" element={<RequestPost/>}></Route>
-          <Route path="/posts/raise-charity" element={<RequestPost/>}></Route>
+          <Route path="/posts/show-all" element={<RequestedPost/>}></Route>
+          <Route path="/posts/raise-charity" element={<RequestedPost/>}></Route>
 </Routes>
       </div>
   )
