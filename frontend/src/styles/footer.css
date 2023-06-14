@@ -1,0 +1,54 @@
+.main{
+    border: 1px solid red;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #FFDCD1;
+}
+.main>div{
+    border: 1px solid yellow;
+    width: 23%;
+    /* line-height: normal; */
+}
+.main>div>div{
+   padding: 5px; 
+   /* border: 1px solid blue; */
+   border-radius: 10px;
+}
+.main>div>div:hover{
+    background-color: rgb(234, 231, 231);
+    
+}
+
+/*   <==============    Tablet View     ===============>       */
+
+@media only screen and (max-width: 820px) {
+    .main{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+
+    }
+    .main>div{
+        border: 1px solid yellow;
+        width: 80%;
+        margin: auto;
+        /* line-height: normal; */
+    }
+}
+
+/*   <==============    Mobile View     ===============>       */
+
+@media only screen and (max-width: 380px) {
+    .main{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+
+    }
+    .main>div{
+        border: 1px solid yellow;
+        width: 80%;
+        margin: auto;
+        /* line-height: normal; */
+    }
+}
