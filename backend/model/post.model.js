@@ -15,7 +15,7 @@ const postSchema = mongoose.Schema(
     status: {
       type: String,
       enum: ["Approved", "Rejected"],
-    },
+    }
   },
   {
     versionKey: false,

@@ -3,22 +3,25 @@ import { Card, CardHeader, CardBody, CardFooter, Stack, Text, Heading, Image, Fl
 
 const RequestPostCards = () => {
   return (
-     <Box> <Card >
-     <CardBody>
+    <Box>
+      <Card>
+        <CardBody>
+          <Box >
+
        <Image
          src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
          alt='Green double couch with wooden legs'
-                     borderRadius='lg'
-                     w={"100%"}
-       />
+         borderRadius='lg'
+         w={"100%"} />
+         </Box>
        <Stack >
-         <Heading>Living room Sofa</Heading>
-         <Text>
+         <Heading mb={-12} >Living room Sofa</Heading>
+         <Text fontSize={"15px"} mb={-12}>
            This sofa is perfect for modern tropical spaces, baroque inspired
            spaces, earthy toned spaces and for people who love a chic design with a
            sprinkle of vintage design.
          </Text>
-         <Flex justify={"space-between"}>
+         <Flex justify={"space-between"} mb={-12}>
          <Text color='blue.600'>         
                           Contribution goal
        </Text>
@@ -31,10 +34,10 @@ const RequestPostCards = () => {
      <Divider />
      <CardFooter>
        <ButtonGroup w="100%" >
-         <Button variant='solid' w="50%" bgColor='green.300'>
+         <Button variant='solid' w="50%" bg='#3dc151dd'>
            Approve
          </Button>
-         <Button variant='solid' w="50%" bgColor='red.500'>
+         <Button variant='solid' w="50%" bgColor='#c13d3ddd'>
            Reject
          </Button>
        </ButtonGroup>
