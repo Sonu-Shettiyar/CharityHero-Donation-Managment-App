@@ -1,16 +1,27 @@
 .main{
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    top:50px;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #FFDCD1;
+    /* background-color: #FFDCD1; */
 }
 .main>div{
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     width: 23%;
     /* line-height: normal; */
 }
+.main>div:nth-child(1){
+    line-height: 25px;
+    font-size: medium;
+}
+.logo{
+    width: 10%;
+    margin: auto;
+    /* align-items: center; */
+  }
+
 .main>div>div{
    padding: 5px; 
    /* border: 1px solid blue; */
@@ -46,7 +57,7 @@
 
     }
     .main>div{
-        border: 1px solid yellow;
+        /* border: 1px solid yellow; */
         width: 80%;
         margin: auto;
         /* line-height: normal; */
