@@ -1,14 +1,15 @@
 import React from 'react'
 import AdminNavbar from '../components/AdminNavbar'
-import { Box, Flex, Grid, Text } from '@chakra-ui/react'
+import { Box, Flex, Grid, Text,Heading, Center } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import Dashboard from '../components/Dashboard'
 const Admin = () => {
   return (
-    <div>
+    <Box>
 
-      <Grid templateColumns='1fr' h={"100vh"} mt={-8} w={"100%"} >
+      <Grid
+        templateColumns='1fr' h={"100vh"} mt={-8} w={"100%"} >
         <Box >
           <AdminNavbar />
           <Tabs >
@@ -42,7 +43,9 @@ const Admin = () => {
 
               <TabPanels bg={"#EFEFEF"}>
                 <TabPanel>
-                  <Box border={"2px solid red"} p={"4% 2% 2% 4%"}>
+                  <Box p={"1% 2% 0 2%"}>
+                    
+
                     <Dashboard />
                   </Box>
                 </TabPanel>
@@ -59,7 +62,7 @@ const Admin = () => {
         </Box>
       </Grid>
 
-    </div>
+    </Box>
   )
 }
 

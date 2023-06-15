@@ -1,19 +1,25 @@
-import { Box, Grid } from '@chakra-ui/react'
+import { Box, Center, Grid, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 import RequestPostCards from './RequestPostCards'
+import RequestedPost from './RequestedPost'
 
 const Dashboard = () => {
+
   return (
-      <Box >
-          
-          {/* <Text>Dashboard</Text> */}
-          <Grid templateColumns='repeat(3, 100px)' gap={20} templateRows={"repeat(3,200px)"}>
+    <>
+      <Text fontSize={"23px"}>
+        Pending Request's
+      </Text>
+      <Center w={"100%"} borderBottom="2px solid green" >
+
+        <Grid templateColumns='repeat(3, 250px)' gap={100} >
           {[1, 2, 3].map((el, ind) => {
-              return <RequestPostCards key={ind}/>
-              
+            return <RequestPostCards key={ind} />
           })}
-          </Grid>
-    </Box>
+        </Grid>
+      </Center>
+      <Text textAlign={"right"}><RequestedPost/></Text>
+    </>
   )
 }
 

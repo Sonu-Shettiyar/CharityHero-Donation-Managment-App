@@ -12,7 +12,7 @@ const AdminNavbar = () => {
       background:"#653719b1",
       color: "#ffffffe7",
       alignItems: "center",
-      justifyContent:"space-between"
+      justifyContent: "space-between",
       
     }}> 
       <div style={{
@@ -20,7 +20,7 @@ const AdminNavbar = () => {
       }}>
 <img src={logo} style={{
         borderRadius:"100px"
-      }} width={"200px"} alt="Charity-Hero" />
+      }} width={"150px"} alt="Charity-Hero" />
       </div>
       <div>
       <h1>Admin Panel</h1>
