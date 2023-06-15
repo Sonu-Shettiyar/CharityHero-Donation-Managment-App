@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div>
     <div className='background'>
-        <img width={"100%"} src="https://media.istockphoto.com/id/807903666/photo/female-phlebotomist-wraps-young-girls-arm-after-blood-draw.webp?b=1&s=170667a&w=0&k=20&c=fRgkpd8m1751UR_CxQP9vzaMs9rk8K8aOPkh80kyOFY=" alt="" />
+        <img width={"100%"} src="https://plus.unsplash.com/premium_photo-1661963873162-5028faa8ce36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTF8fGRvbmF0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="" />
     </div>
     
     <div className='signup-page'>
@@ -50,7 +50,7 @@ const Login = () => {
             <input type="password" placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)} />
             <br />
             <button >LogIn</button>
-            <span>Don't have an account ? <Link className='log-btn' to='/login'>SignUp</Link> </span>
+            <span>Don't have an account ? <Link className='log-btn' to='/signup'>SignUp</Link> </span>
 
       </div>
     </div>
