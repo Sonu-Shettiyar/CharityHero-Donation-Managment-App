@@ -11,10 +11,10 @@ function App() {
   return (
 
    <div>
-<Admin/>
-      {/* <Navbar/>
+{/* <Admin/> */}
+      <Navbar/>
       <MainRoutes/>
-      <Footer/> */}
+      <Footer/>
 </div> )
 }
 

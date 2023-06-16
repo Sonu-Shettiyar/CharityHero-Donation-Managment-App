@@ -1,6 +1,6 @@
 .main{
     /* border: 1px solid red; */
-    top:50px;
+    margin-top:60px;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
