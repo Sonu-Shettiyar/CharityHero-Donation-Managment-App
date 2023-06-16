@@ -4,7 +4,7 @@ const { PostModel } = require("../model/post.model");
 
 const postRouter = express.Router();
 
-// postRouter.use(auth);
+postRouter.use(auth);
 
 //add a post
 postRouter.post("/add", async (req, res) => {
