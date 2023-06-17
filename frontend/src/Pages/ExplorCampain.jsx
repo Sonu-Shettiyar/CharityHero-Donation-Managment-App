@@ -37,7 +37,8 @@ useEffect(()=>{
     <Box>
       <Image
         src={headerimage}
-        w={{ base: "50%", lg: "100%" }}
+        // w={{ base: "100%", lg: "100%" }}
+        w={"100%"}
         alt="Dan Abramov"
       />
       <Box display={"flex"} gap={20} justifyContent={"center"}>

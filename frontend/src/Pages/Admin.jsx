@@ -7,8 +7,9 @@ import Dashboard from '../components/Dashboard'
 import RequestPostCards from '../components/RequestPostCards'
 import NewRequests from '../components/NewRequests'
 import UserList from '../components/UserList'
+import AllInitiatives from '../components/AllInitiatives'
 const Admin = () => {
-const [posts,setPosts] = useState([])
+// const [posts,setPosts] = useState([])
   
   return (
     <Box >
@@ -18,7 +19,7 @@ const [posts,setPosts] = useState([])
         <Box  >
           <AdminNavbar />
           <Box >
-          <Tabs  >
+          <Tabs   >
               <Flex>
 
               <TabList  pt={"2%"} bg={"#FFDCD1"}>
@@ -78,7 +79,7 @@ const [posts,setPosts] = useState([])
                   <TabPanel>
                   <Box w={"100%"} >
 
-                    <UserList />
+                    <AllInitiatives />
                   </Box>
                 </TabPanel>
               </TabPanels>

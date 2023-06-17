@@ -3,13 +3,13 @@ import React from 'react'
 import "../components/UserTable.css"
 import { MdOutlineRemoveCircleOutline  } from "react-icons/md"
 
-const UserRow = () => {
+const UserRow = ({email,_id,mobile,name}) => {
   return (
     <Tr>
-    <Td>inchesjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</Td>
-    <Td>millimetres (mm)</Td>
-    <Td isNumeric>25.4</Td>
-      <Td>millimetres (mm)</Td>
+      <Td>{ _id}</Td>
+      <Td>{name?name:email }</Td>
+      <Td isNumeric>{ mobile?mobile:"Private Number"}</Td>
+      <Td>{ email}</Td>
       <Td>
         <Center>
         <Button leftIcon={<MdOutlineRemoveCircleOutline />} colorScheme='teal' variant='solid'>

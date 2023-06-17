@@ -29,7 +29,7 @@ const ExplorCampainKart = ({
       <Image
         src={image}
         alt="Green double couch with wooden legs"
-        borderRadius="lg"
+        // borderRadius="lg"
         w={"100%"}
         m={"auto"}
         borderRadius={"10px"}
