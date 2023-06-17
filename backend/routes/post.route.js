@@ -20,7 +20,11 @@ postRouter.post("/add", async (req, res) => {
 // get the post
 postRouter.get("/", async (req, res) => {
   try {
-    const { category, location } = req.query;
+    const { page = 1, category, location } = req.query;
+    const limit = 9;
+    //dynamic limit
+    //const { page = 1, category, location, limit } = req.query;
+    const skip = (page - 1) * limit;
     let filter = {};
 
     if (category) {
@@ -29,7 +33,11 @@ postRouter.get("/", async (req, res) => {
     if (location) {
       filter.location = location;
     }
-    const posts = await PostModel.find({ userID: req.body.userID, ...filter });
+
+    const posts = await PostModel.find({ userID: req.body.userID, ...filter })
+      .skip(skip)
+      .limit(limit);
+
     res.send(posts);
   } catch (err) {
     res.json({ error: err.message });
