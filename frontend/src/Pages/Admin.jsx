@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../components/AdminNavbar'
 import { Box, Flex, Grid, Text, Heading, Center } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom'
@@ -8,10 +8,8 @@ import RequestPostCards from '../components/RequestPostCards'
 import NewRequests from '../components/NewRequests'
 import UserList from '../components/UserList'
 const Admin = () => {
-
-  const getAllData = () => {
-    // fetch("https://gifted-mittens-fly.cyclic.app/posts/")
-  }
+const [posts,setPosts] = useState([])
+  
   return (
     <Box >
 
@@ -63,7 +61,7 @@ const Admin = () => {
                   <Box>
 
 
-                    <Dashboard />
+                      <Dashboard  />
                   </Box>
                 </TabPanel>
                 <TabPanel>
@@ -73,7 +71,7 @@ const Admin = () => {
                 <TabPanel>
                   <Box w={"100%"} >
 
-                    <UserList />
+                    <UserList  />
                   </Box>
                   </TabPanel>
                   
