@@ -29,22 +29,32 @@ const UserList = () => {
             })
             .catch((err) => console.log(err, "error"))
     }
+    const deleteUserById = (id) => {
+        // fetch(`https://gifted-mittens-fly.cyclic.app/users/delete/${id}`)
+        //     .then((req) => req.json())
+        //     .then((res) => {
+        //         console.log(res, "deleted")
+        //         alert("User deleted")
+        //     })
+        //     .catch((err) => console.log(err, "error"))
+        alert(id)
+    }
     useEffect(() => {
         getAllUsers();
     }, [])
     if (users.length == 0) {
         return (
             <Center p={"40vh"}>
-                 <Spinner
-  thickness='20px'
-  speed='0.55s'
-  emptyColor='#a97112a2'
-  color='pink'
-  size='xl'
+                <Spinner
+                    thickness='20px'
+                    speed='0.55s'
+                    emptyColor='#a97112a2'
+                    color='pink'
+                    size='xl'
                 /><Text p={"1%"} >
                     Loading. . . .
-</Text>
-           </Center>
+                </Text>
+            </Center>
         )
     }
     return (
@@ -68,8 +78,8 @@ const UserList = () => {
                         <Tbody>
                             {
                                 users?.map((el, ind) => {
-                                    console.log(el,"user")
-                                    return <UserRow {...el} key={ind} />
+                                    console.log(el, "user")
+                                    return <UserRow {...el} deleteUserById={deleteUserById} key={ind} />
                                 })
                             }
                         </Tbody>

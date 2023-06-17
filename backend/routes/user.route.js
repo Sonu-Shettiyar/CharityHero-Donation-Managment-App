@@ -91,9 +91,21 @@ userRouter.get("/logout", (req, res) => {
 userRouter.get("/all-users", async (req, res) => {
   try {
     const users = await UserModel.find();
-    
-      res.json({ users });
-    
+
+    res.json({ users });
+
+  } catch (err) {
+    res.json({ error: err.message });
+  }
+});
+
+//delete
+userRouter.delete("/delete/:userID", async (req, res) => {
+  const { userID } = req.params;
+  try {
+    await UserModel.findByIdAndDelete({ _id: userID });
+    res.json({ msg: `user has been deleted` });
+
   } catch (err) {
     res.json({ error: err.message });
   }
