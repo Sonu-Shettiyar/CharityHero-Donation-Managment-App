@@ -4,7 +4,7 @@ const { PostModel } = require("../model/post.model");
 
 const postRouter = express.Router();
 
-postRouter.use(auth);
+// postRouter.use(auth);
 
 //add a post
 postRouter.post("/add", async (req, res) => {
@@ -17,10 +17,19 @@ postRouter.post("/add", async (req, res) => {
   }
 });
 
-//get the post
+// get the post
 postRouter.get("/", async (req, res) => {
   try {
-    const posts = await PostModel.find({ userID: req.body.userID });
+    const { category, location } = req.query;
+    let filter = {};
+
+    if (category) {
+      filter.category = category;
+    }
+    if (location) {
+      filter.location = location;
+    }
+    const posts = await PostModel.find({ userID: req.body.userID, ...filter });
     res.send(posts);
   } catch (err) {
     res.json({ error: err.message });
