@@ -4,18 +4,18 @@ const { RequestModel } = require("../model/request.model");
 
 const requestRouter = express.Router();
 
-// requestRouter.use(auth);
+requestRouter.use(auth);
 
 //add a post
-// requestRouter.post("/add", async (req, res) => {
-//   try {
-//     const post = new RequestModel(req.body);
-//     await post.save();
-//     res.json({ msg: "New post has been added", post: req.body });
-//   } catch (err) {
-//     res.json({ error: err.message });
-//   }
-// });
+requestRouter.post("/add", async (req, res) => {
+  try {
+    const post = new RequestModel(req.body);
+    await post.save();
+    res.json({ msg: "New post has been added", post: req.body });
+  } catch (err) {
+    res.json({ error: err.message });
+  }
+});
 
 //get the post
 requestRouter.get("/", async (req, res) => {
