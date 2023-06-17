@@ -1,21 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../components/AdminNavbar'
-import { Box, Flex, Grid, Text,Heading, Center } from '@chakra-ui/react'
+import { Box, Flex, Grid, Text, Heading, Center } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import Dashboard from '../components/Dashboard'
+import RequestPostCards from '../components/RequestPostCards'
+import NewRequests from '../components/NewRequests'
+import UserList from '../components/UserList'
 const Admin = () => {
+const [posts,setPosts] = useState([])
+  
   return (
-    <Box>
+    <Box >
 
-      <Grid
-        templateColumns='1fr' h={"100vh"} mt={-8} w={"100%"} >
-        <Box >
+      <Grid   
+        templateColumns='1fr'  mt={-8} w={"100%"} >
+        <Box  >
           <AdminNavbar />
-          <Tabs >
-            <Flex>
-              <TabList h={'70vh'} pt={"2%"} bg={"#FFDCD1"}>
-                <Grid templateColumns='1fr' templateRows={"repeat(3,50px)"} gap={"20px"} >
+          <Box >
+          <Tabs  >
+              <Flex>
+
+              <TabList  pt={"2%"} bg={"#FFDCD1"}>
+                <Grid templateColumns='1fr'  templateRows={"repeat(4,50px)"} gap={"20px"} >
 
                   <Box bg={"#000000"} mb={"10px"} h={"100%"} w={"350px"}>
                     <Tab bg={"none"} border={"none"} w={"100%"} color={"white"}>
@@ -33,7 +40,15 @@ const Admin = () => {
                   </Box><Box bg={"#000000"} mb={"10px"} h={"100%"} w={"350px"}>
                     <Tab bg={"none"} border={"none"} w={"100%"} color={"white"}>
                       <Text fontSize={"18px"}>
-                        Users
+                      Users
+                      </Text>
+                    </Tab>
+                    </Box>
+                    <Box bg={"#000000"} mb={"10px"} h={"100%"} w={"350px"}>
+                    <Tab bg={"none"} border={"none"} w={"100%"} color={"white"}>
+                      <Text fontSize={"18px"}>
+                      Initiatives
+ 
                       </Text>
                     </Tab>
                   </Box>
@@ -43,22 +58,34 @@ const Admin = () => {
 
               <TabPanels bg={"#EFEFEF"}>
                 <TabPanel>
-                  <Box p={"1% 2% 0 2%"}>
-                    
+                  <Box>
 
-                    <Dashboard />
+
+                      <Dashboard  />
                   </Box>
                 </TabPanel>
                 <TabPanel>
-                  <p>two!</p>
+
+                  <NewRequests />
                 </TabPanel>
                 <TabPanel>
-                  <p>three!</p>
+                  <Box w={"100%"} >
+
+                    <UserList  />
+                  </Box>
+                  </TabPanel>
+                  
+                  <TabPanel>
+                  <Box w={"100%"} >
+
+                    <UserList />
+                  </Box>
                 </TabPanel>
               </TabPanels>
             </Flex>
           </Tabs>
 
+         </Box>
         </Box>
       </Grid>
 
