@@ -1,12 +1,16 @@
 import React from 'react'
 import "../styles/footer.css"
+import logo from "../images/charityhero_logo.jpg"
 
 const Footer = () => {
   return (
     <div>
         <hr />
         <div className='main'>
-        <div></div>
+        <div className='logo'>
+          <img width={"40%"} src={logo} alt="" />
+          <div>We are India's most trusted and transparent crowdfunding platform, with a vision to create a social impact. Our unique model allows people from across the globe to donate towards raising funds for products required by NGOs and charities in India, which are then delivered to them by us.</div>
+        </div>
         <div>
             <h4>Fundraise for</h4>
             <div>Medical</div>
@@ -39,6 +43,18 @@ const Footer = () => {
         </div>
         </div>
         <hr />
+        <div>
+          <div>
+            <div></div>
+            <div>
+              <div>Term</div>
+              <div>Privacy Notice</div>
+              <div>Legal</div>
+              <div>Accessibility Statement</div>
+            </div>
+          </div>
+          <div></div>
+        </div>
     </div>
   )
 }

@@ -6,9 +6,11 @@ const auth = (req, res, next) => {
     try {
       const decoded = jwt.verify(token, "TOKEN");
       if (decoded) {
+        req.body.userId = decoded.userID;
+        req.body.user = decoded.name;
         next();
       } else {
-        res.json({ msg: "Token not recognised" });
+        res.json({ msg: "Not recognised" });
       }
     } catch (err) {
       res.json({ error: err.message });

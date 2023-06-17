@@ -1,29 +1,48 @@
 .navbar{
-    width: 100%;
+    width: 100vw;
     height: 50px;
     border: 1px solid red;
     top: 0px;
     display: flex;
     position: fixed;
     justify-content: space-between;
-    background-color: #FFDCD1;
+    background-color: #c5806a;
     text-decoration: none;
+    z-index: 1;
+    left: 0;
 }
 .menu{
   justify-content: space-evenly;
   display: flex;
-  width: 70%;
+  width: 80%;
+}
+.logo{
+
+  margin: auto;
+  align-items: center;
+}
+.logo img{
+    border-radius: 100px;
 }
 .menu1{
-width: 60%;
+    width: 60%;
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
 }
-.menu1>Link>div{
-    text-decoration: none;
+.menu1 button , .menu2 button{
+  background-color: #c5806a;
+  border: 0px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.menu1 button:hover, .menu2 button:hover{
+  background-color: #7a665f;
+color: rgb(193, 213, 230);
 }
 .menu2{
- width: 30%;
-    display: flex;
+      width: 30%;
+      display: flex;
+      align-items: center;
       justify-content: space-evenly;
 }
