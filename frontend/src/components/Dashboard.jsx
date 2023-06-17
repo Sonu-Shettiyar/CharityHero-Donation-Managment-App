@@ -1,5 +1,5 @@
 import { Box, Center, Divider, Flex, Grid, Heading, TagLabel, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, Space } from 'antd';
 import RequestPostCards from './RequestPostCards'
 import RequestedPost from './RequestedPost'
@@ -12,7 +12,34 @@ import {
   StatGroup,
 } from '@chakra-ui/react'
 const Dashboard = () => {
+  const [posts, setPosts] = useState([])
+  const [neededAmount, setNeededAmount] = useState(0);
+  const [raisedAmount, setRaisedAmount] = useState(0);
+  const random = (Math.floor(Math.random() * 10000) + 1000);
+  const getAllData = () => {
+    fetch("https://gifted-mittens-fly.cyclic.app/posts/")
+      .then((req) => req.json())
+      .then((res) => {
+        console.log(res)
+        setPosts(res)
+        let total = 0;
+        let acc = 0;
+        res.map((el, id) => {
+          acc += Number(el.raise_money.split("").filter((el)=>el!=",").join(""))
+          const filtered = el.want_money.split("").filter((el)=>el!=",").join("")
+          total += Number(filtered);
 
+        })
+        setRaisedAmount(acc)
+        setNeededAmount(total)
+
+      })
+    .catch((err)=>console.log(err))
+  }
+  useEffect(() => {
+    getAllData()
+    setRaisedAmount((prev)=>prev+random)
+  },[random])
   return (
     <>
 
@@ -24,7 +51,7 @@ const Dashboard = () => {
           <Stat>
             <StatLabel fontWeight={600} textAlign={"center"} >Incoming Credit's</StatLabel>
             < hr style={{ border: "1px dashed green" }} />
-            <StatNumber textAlign={"end"} fontSize={"20px"} fontWeight={600} pb={5}>₹ 34,567</StatNumber>
+            <StatNumber textAlign={"end"} fontSize={"20px"} fontWeight={600} pb={5}>₹{  random}</StatNumber>
             <StatHelpText>
               <StatArrow color={"lightgreen"} type='increase' mr={"2px"} />
               +{"   "}23.36%
@@ -34,10 +61,10 @@ const Dashboard = () => {
         <Box>
 
           <Stat>
-            <StatLabel fontWeight={600} textAlign={"center"} >TOTAL</StatLabel>
+            <StatLabel fontWeight={600} textAlign={"center"} >Current Balance</StatLabel>
             < hr style={{ border: "1px dashed red" }} />
 
-            <StatNumber textAlign={"end"} fontSize={"28px"} pt={5} fontWeight={600} textShadow="rgba(38, 40, 39, 0.359) 1px 1px">₹ 45,349,556</StatNumber>
+            <StatNumber textAlign={"end"} fontSize={"28px"} pt={5} fontWeight={600} textShadow="rgba(38, 40, 39, 0.359) 1px 1px">₹{raisedAmount }</StatNumber>
             <StatHelpText>
 
             </StatHelpText>
@@ -73,21 +100,19 @@ const Dashboard = () => {
 
           <Card size="small" title="Amount Details" style={{ width: 300, background: "#c68a0988", border: "1px solid grey" }}>
             <Box pl={20}>
+              <Text>
+                Amount Needed : ₹{neededAmount-random}
+
+              </Text>
 
               <Text>
-                Amount to be Raised : ₹{10}
+                Amount Raised : ₹{raisedAmount}
 
 
               </Text>
               <Text>
-                Amount Needed : ₹{41}
 
-              </Text>
-              <Text>
-
-                Total <span style={{
-                  color: 'blue'
-                }}>If considered</span>: 51
+                Total Estimation: ₹{neededAmount+raisedAmount}
               </Text>
             </Box>
 
@@ -102,7 +127,7 @@ const Dashboard = () => {
       <Center w={"100%"} >
 
         <Grid templateColumns='repeat(3, 250px)' gap={100} >
-          {[1, 2, 3].map((el, ind) => {
+          {posts?.map((el, ind) => {
             return <RequestPostCards key={ind} />
           })}
         </Grid>

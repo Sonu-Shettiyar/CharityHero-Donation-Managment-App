@@ -77,12 +77,25 @@ userRouter.get("/logout", (req, res) => {
   try {
     jwt.verify(token, "TOKEN", (err, decoded) => {
       if (err) {
-        return res.status(400).json({ error: "Invalid token." });
+        return res.status(400).json({ error: "Unable to logout." });
       }
       res.status(200).json({ msg: "User has been logged out" });
     });
   } catch (err) {
     res.status(400).json({ error: err.message });
+  }
+});
+
+
+//Get all user
+userRouter.get("/all-users", async (req, res) => {
+  try {
+    const users = await UserModel.find();
+    
+      res.json({ users });
+    
+  } catch (err) {
+    res.json({ error: err.message });
   }
 });
 
