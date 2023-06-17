@@ -5,7 +5,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* background-color: #FFDCD1; */
+  
+}
+.Bmain{
+    background-color: #faeae5;
 }
 .main>div{
     /* border: 1px solid yellow; */
