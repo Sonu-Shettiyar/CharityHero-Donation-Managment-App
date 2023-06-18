@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import "../styles/signup.css"
-import axios from "axios"
+
 
 const SignUp = () => {
   const [name ,setName] = useState("");
@@ -21,16 +21,16 @@ const SignUp = () => {
     .then(res => {
       if(res.msg){
         alert(res.msg)
+        console.log(res);
       }else{
         alert(res.error)
       }
     
-      // console.log(res.error);
+  
     })
     .catch(err=> console.log(err))
 
-    // axios.post("https://gifted-mittens-fly.cyclic.app/users/register",details)
-    // .then(res=>console.log(res))
+  
   }
 
 
