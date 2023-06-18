@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import "../styles/signup.css"
-
+import axios from "axios"
 
 const SignUp = () => {
   const [name ,setName] = useState("");
@@ -10,8 +10,9 @@ const SignUp = () => {
   const [number ,setNumber] = useState("");
 
 
-  const handleSignup = () => {
-    const details = {name,email,password,number}
+  const handleSignup = (e) => {
+    e.preventDefault();
+    const details = {name,email,password,mobile:number}
     
     fetch('https://gifted-mittens-fly.cyclic.app/users/register', {
       method: 'post',
@@ -19,18 +20,13 @@ const SignUp = () => {
       headers: {'Content-Type': 'application/json'}
     }).then(res=>res.json())
     .then(res => {
-      if(res.msg){
-        alert(res.msg)
-        console.log(res);
-      }else{
-        alert(res.error)
-      }
-    
-  
+      alert("New User Has been Added")
+      console.log(res);
     })
     .catch(err=> console.log(err))
 
-  
+    // axios.post("https://gifted-mittens-fly.cyclic.app/users/register",details)
+    // .then(res=>console.log(res))
   }
 
 
@@ -49,7 +45,7 @@ const SignUp = () => {
                 Create your account today and raise fund <br/>and bring the change in others life<br/> with the CharityHero support !
              </h3>
              </div>
-            <div className='signup'>
+            <form className='signup'>
                 <h1>Charity<span>Hero</span>  <span> SignUp</span></h1>
                 
                 <br />
@@ -61,10 +57,10 @@ const SignUp = () => {
                 <br />
                 <input type="password" placeholder='Password' required onChange={(e)=>setPassword(e.target.value)}/>
                 <br />
-                <button onClick={handleSignup}>Sign Up</button>
+                <button  onClick={handleSignup}>Sign Up</button>
                 <span>Already have an account ? <Link className='log-btn' to='/login'>Login</Link> </span>
 
-          </div>
+          </form>
          </div>
         </div>
   )
