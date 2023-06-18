@@ -17,13 +17,10 @@ postRouter.post("/add", async (req, res) => {
   }
 });
 
-// get the post
+// get the post/filter/search/pagination
 postRouter.get("/", async (req, res) => {
   try {
-    // const { page = 1, category, location } = req.query;
-    // const limit = 9;
-    //dynamic limit
-    const { page = 1, category, location, limit } = req.query;
+    const { page = 1, category, location, limit, q } = req.query;
     const skip = (page - 1) * limit;
     let filter = {};
 
@@ -33,11 +30,14 @@ postRouter.get("/", async (req, res) => {
     if (location) {
       filter.location = location;
     }
-
+    if (q) {
+      filter.$or = [
+        { title: { $regex: q, $options: "i" } }
+      ];
+    }
     const posts = await PostModel.find({ userID: req.body.userID, ...filter })
       .skip(skip)
       .limit(limit);
-
     res.send(posts);
   } catch (err) {
     res.json({ error: err.message });
