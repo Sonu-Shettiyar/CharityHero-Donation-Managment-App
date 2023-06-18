@@ -36,7 +36,7 @@ const ExplorCampainKart = ({
         zIndex={2}
 
       />
-      <Box  bgColor={"green"} color={"white"} w={"30%"} borderRadius={5}  ml={5} pl={5}>Tax Benefit</Box>
+      <Box bgColor={"green"} color={"white"} w={"30%"} borderRadius={5} ml={5} pl={5}>Tax Benefit</Box>
       <Stack mt="6" spacing="3" pl={5}>
         <Heading as="h3" size="lg">
           {title}
