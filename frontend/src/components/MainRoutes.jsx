@@ -7,6 +7,7 @@ import { ExplorCampain } from '../Pages/ExplorCampain'
 import Home from '../Pages/Home'
 import SignUp from '../Pages/SignUp'
 import { Singleuserpage } from '../Pages/Singleuserpage'
+import RaiseCharity from '../Pages/RaiseCharity'
 
 
 const MainRoutes = () => {
@@ -20,6 +21,7 @@ const MainRoutes = () => {
 
             <Route path='/signUp' element={<SignUp/>}></Route>
             <Route path='/' element={<Home/>}></Route>
+            <Route path='/raise-charity' element={<RaiseCharity/>}></Route>
 
         </Routes>
     </div>

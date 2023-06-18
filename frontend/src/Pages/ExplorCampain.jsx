@@ -36,7 +36,7 @@ let getdata=(params)=>{
   
 
 }
-console.log(seachparam)
+// console.log(seachparam)
 
 useEffect(()=>{
  let params={location,category}
