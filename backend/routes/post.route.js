@@ -20,10 +20,10 @@ postRouter.post("/add", async (req, res) => {
 // get the post
 postRouter.get("/", async (req, res) => {
   try {
-    const { page = 1, category, location } = req.query;
-    const limit = 9;
+    // const { page = 1, category, location } = req.query;
+    // const limit = 9;
     //dynamic limit
-    //const { page = 1, category, location, limit } = req.query;
+    const { page = 1, category, location, limit } = req.query;
     const skip = (page - 1) * limit;
     let filter = {};
 
