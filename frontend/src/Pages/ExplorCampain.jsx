@@ -1,4 +1,5 @@
 import headerimage from "../images/headerimage.png";
+import { useSearchParams } from "react-router-dom"
 //import {SearchIcon } from '@chakra-ui/icons'
 import {
   Box,
@@ -16,10 +17,18 @@ import axios from "axios"
 export const ExplorCampain = () => {
 
 let [data,setdata]=useState([])
+let [location,setlocation]=useState("")
+let [category,setcategory]=useState("")
+let [seachparam,setsearchparam]=useSearchParams()
 
-let getdata=()=>{
+let getdata=(params)=>{
+ 
 
-    axios.get("https://gifted-mittens-fly.cyclic.app/posts/")
+    axios({
+      method:"get",
+      url:"https://gifted-mittens-fly.cyclic.app/posts/",
+      params:params
+    })
     .then((res)=>setdata(res.data))
     .catch((error)=>console.log(error))
 
@@ -27,10 +36,14 @@ let getdata=()=>{
   
 
 }
+console.log(seachparam)
 
 useEffect(()=>{
-  getdata()
-},[])
+ let params={location,category}
+  console.log(params)
+  setsearchparam(params)
+  getdata(params)
+},[location,category])
 
 
   return (
@@ -55,15 +68,19 @@ useEffect(()=>{
         
      
         <HStack spacing='24px'>
-        <Select placeholder="Select option" size='md'>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+        <Select placeholder="Select Location" size='md' onChange={(el)=>setlocation(el.target.value)}>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Kolkata">Kolkata</option>
           </Select> 
-          <Select placeholder="Select option" size='lg'>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+          <Select placeholder="Select Category" size='lg' onChange={(el)=>setcategory(el.target.value)}>
+            <option value="animal">Animal</option>
+            <option value="children">Children</option>
+            <option value="disability">Disability</option>
+            <option value="education">Education</option>
+            <option value="hunger">Hunger</option>
           </Select>
 
         </HStack>
@@ -77,7 +94,7 @@ useEffect(()=>{
         }
         
       </SimpleGrid>
-      <Footer />
+     
     </Box>
   );
 };
