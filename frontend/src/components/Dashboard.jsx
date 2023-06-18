@@ -103,7 +103,7 @@ const Dashboard = () => {
       </Flex>
 
 
-      <Flex p={20} justifyContent={"space-around"}>
+      <Flex p={[90,20,20]} justifyContent={"space-around"}>
         <Space>
 
           <Card size="small" title="Initiative Details" style={{ width: 300, border: "1px solid grey" }}>
@@ -162,7 +162,7 @@ const Dashboard = () => {
               color='pink'
               size='xl'
             />
-            <Text>{"  "}Loading....</Text></Center> : (
+            <Text p={1}>{"  "}Loading....</Text></Center> : (
             <Grid templateColumns='repeat(3, 250px)' gap={100} >
 
               {posts.length > 0 && (<><RequestPostCards {...posts[0]} />

@@ -17,7 +17,7 @@ const AllInitiatives = () => {
   }, [])
   return (
     <>
-      <Box pl={25}><Text fontSize={"22px"} fontWeight={600}> New Request's </Text></Box>
+      <Box pl={25}><Text fontSize={"22px"} fontWeight={600}>Progressing Initiatives </Text></Box>
       <hr />
       <Center p={"1% 2% 0 2%"}>
               {
@@ -30,9 +30,9 @@ const AllInitiatives = () => {
   thickness='20px'
   speed='0.65s'
   emptyColor='pink'
-  color='blue.500'
+  color='gray'
   size='xl'
-/><Text fontWeight={900}>Loading...</Text>
+/><Text p={1}>Loading...</Text>
                       </>)
         }
       </Center></>
