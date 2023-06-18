@@ -7,8 +7,9 @@ import Dashboard from '../components/Dashboard'
 import RequestPostCards from '../components/RequestPostCards'
 import NewRequests from '../components/NewRequests'
 import UserList from '../components/UserList'
+import AllInitiatives from '../components/AllInitiatives'
 const Admin = () => {
-const [posts,setPosts] = useState([])
+// const [posts,setPosts] = useState([])
   
   return (
     <Box >
@@ -18,33 +19,34 @@ const [posts,setPosts] = useState([])
         <Box  >
           <AdminNavbar />
           <Box >
-          <Tabs  >
+          <Tabs   >
               <Flex>
 
               <TabList  pt={"2%"} bg={"#FFDCD1"}>
-                <Grid templateColumns='1fr'  templateRows={"repeat(4,50px)"} gap={"20px"} >
+                <Grid templateColumns=''  templateRows={"repeat(4,50px)"} gap={"20px"} >
 
-                  <Box bg={"#000000"} mb={"10px"} h={"100%"} w={"350px"}>
+                  <Box bg={"#000000"} w={["100px","250px","350px"]}>
                     <Tab bg={"none"} border={"none"} w={"100%"} color={"white"}>
                       <Text fontSize={"18px"}>
                         Dashboard
                       </Text>
                     </Tab>
                   </Box>
-                  <Box bg={"#000000"} mb={"10px"} h={"100%"} w={"350px"}>
+                  <Box bg={"#000000"}  w={["100px","250px","350px"]}>
                     <Tab bg={"none"} border={"none"} w={"100%"} color={"white"}>
                       <Text fontSize={"18px"}>
                         New Request's
                       </Text>
                     </Tab>
-                  </Box><Box bg={"#000000"} mb={"10px"} h={"100%"} w={"350px"}>
+                    </Box>
+                    <Box bg={"#000000"} w={["100px","250px","350px"]}>
                     <Tab bg={"none"} border={"none"} w={"100%"} color={"white"}>
                       <Text fontSize={"18px"}>
                       Users
                       </Text>
                     </Tab>
                     </Box>
-                    <Box bg={"#000000"} mb={"10px"} h={"100%"} w={"350px"}>
+                    <Box bg={"#000000"}  w={["100px","250px","350px"]}>
                     <Tab bg={"none"} border={"none"} w={"100%"} color={"white"}>
                       <Text fontSize={"18px"}>
                       Initiatives
@@ -78,7 +80,7 @@ const [posts,setPosts] = useState([])
                   <TabPanel>
                   <Box w={"100%"} >
 
-                    <UserList />
+                    <AllInitiatives />
                   </Box>
                 </TabPanel>
               </TabPanels>

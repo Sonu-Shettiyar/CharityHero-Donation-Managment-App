@@ -16,7 +16,8 @@ const postSchema = mongoose.Schema(
     image: String,
     location: String,
     userID: String,
-    name:String
+    name: String,
+    description :String
     
     // description: String,
     // amount: Number,
