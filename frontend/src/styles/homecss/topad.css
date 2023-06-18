@@ -1,0 +1,31 @@
+.topAd{
+    width: 90%;
+    margin: auto;
+    display: flex;
+
+}
+.topAd>div{
+width: 100%;
+
+}
+.topAd h1{
+   display: flex;
+    margin-top: 80px;
+    margin-left: 80px;
+    color: #c5806a;
+    
+}
+.topAd button{
+    background-color:#c5806a; 
+    color: white;
+    border: 0px solid black;
+    border-radius: 20px;
+    padding: 10px 40px;
+    margin-top: 40px;
+    margin-left: 80px;
+}
+.topAd button:hover{
+    background-color:#f0c0b0; 
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}

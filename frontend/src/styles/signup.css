@@ -9,9 +9,9 @@
     border: 1px solid black;
     width: 40%;
     background-color: whitesmoke;
-    background: rgba(107, 203, 241, 0.498);
+    background: rgba(197, 128, 106, 0.498);
     border-radius: 10px;
-    height: 400px;
+    height: 500px;
     margin-top: 70px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     transition: ease-in;
@@ -30,8 +30,8 @@
     top: 7%;
     left:5%;
     justify-content: space-evenly;
-    background-color : blue ;
-    background: rgba(153, 217, 243, 0.3);
+    /* background-color : blue ; */
+    background: rgba(197, 128, 106, 0.3);
     border-radius : 90px 10px 100px 10px;
     height: 600px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -57,7 +57,7 @@ transition: 0.2s;
 
 .signup>button{
 border-radius: 20px;
-background-color: #1E88E5;
+background-color: rgb(201, 150, 10);
 padding: 10px 20px;
 width: 80%;
 margin-top: 20px;
@@ -66,7 +66,7 @@ margin-bottom: 30px;
 }
 .signup>button:hover{
 box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-background-color: #105b9d;
+background-color: rgb(239, 178, 10);
 color: #fefefe;
 }
 .signup>label{
@@ -74,7 +74,7 @@ font-size: large;
 padding-left: 10%;
 }
 .signup>h1{
-color: rgb(30, 136, 229);
+color:rgb(239, 178, 10);
 font-size: 30px;
 padding-left: 20px;
 }
@@ -92,19 +92,19 @@ text-decoration: underline;
 }
 
 .signup-detail{
-background: rgba(153, 217, 243, 0.3);
+background: rgba(197, 128, 106, 0.1);
 padding: 10px;
 border: 0px solid red;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
  
 }
 .signup-detail>h1{
-color: rgb(54, 39, 39);
+color: rgb(240, 182, 9);
 font-size: 30px;
 padding-left: 20px;
 }
 .signup-detail>h1>span{
-color: rgb(20, 154, 232);
+color: rgb(239, 178, 10);
 }
 .signup-detail>h1>span>span{
 color: rgb(255, 255, 255);

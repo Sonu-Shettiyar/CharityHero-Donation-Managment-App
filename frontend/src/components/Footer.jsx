@@ -4,7 +4,7 @@ import logo from "../images/charityhero_logo.jpg"
 
 const Footer = () => {
   return (
-    <div>
+    <div className='Bmain'>
         <hr />
         <div className='main'>
         <div className='logo'>
