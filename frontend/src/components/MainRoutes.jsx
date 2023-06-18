@@ -6,6 +6,7 @@ import { ExplorCampain } from '../Pages/ExplorCampain'
 
 import Home from '../Pages/Home'
 import SignUp from '../Pages/SignUp'
+import { Singleuserpage } from '../Pages/Singleuserpage'
 
 
 const MainRoutes = () => {
@@ -15,7 +16,7 @@ const MainRoutes = () => {
             <Route path='/login' element={<Login/>}></Route>
 
             <Route path='/explorcampain' element={<ExplorCampain/>}></Route>
-
+            <Route path="/user/:user_id" element={<Singleuserpage/>}/>
 
             <Route path='/signUp' element={<SignUp/>}></Route>
             <Route path='/' element={<Home/>}></Route>
