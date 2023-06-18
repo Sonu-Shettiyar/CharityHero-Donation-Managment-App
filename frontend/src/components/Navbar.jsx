@@ -15,13 +15,8 @@ const Navbar = () => {
             <div className='menu'>
             <div className='menu1'>
 
-                <Link to="#"><div>For individual</div></Link>
-                <div><Link to={"/explorcampain"}>For charity</Link></div>
-                <div><Link to={"#"}>About us</Link></div>
-                <div><Link to={"#"}>Help</Link></div>
-
-                <Link to="#"><button>For individual</button></Link>
-                <Link to={"#"}><button>For charity</button></Link>
+                <Link to="/raise-charity"><button>Raise Charity</button></Link>
+                <Link to={"/explorcampain"}><button>Explore Campaign</button></Link>
                 <Link to={"#"}><button>About us</button></Link>
                 <Link to={"#"}><button>Help</button></Link>
 
