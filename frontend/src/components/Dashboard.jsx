@@ -27,7 +27,6 @@ const Dashboard = () => {
         res.map((el, id) => {
           if (el.raise_money !== undefined) {
             acc += +el.raise_money
-            console.log(acc)
             let ans = el.raise_money + ""
             const filtered = ans?.split("").filter((el) => el != ",").join("")
             total += Number(filtered);
@@ -110,11 +109,11 @@ const Dashboard = () => {
             <Box pl={20} >
 
               <Text>
-                Initiative in progress : {54}
+                Initiative in progress : {Math.floor((+posts.length/2))-5}
 
               </Text>
               <Text>
-                Initiative Closed : {+posts.length - 54}
+                Initiative Closed : {+posts.length - Math.floor((+posts.length/2))+5}
 
               </Text>
               <Text>
@@ -165,9 +164,9 @@ const Dashboard = () => {
             <Text p={1}>{"  "}Loading....</Text></Center> : (
             <Grid templateColumns='repeat(3, 250px)' gap={100} >
 
-              {posts.length > 0 && (<><RequestPostCards {...posts[0]} />
-                <RequestPostCards {...posts[1]} />
-                <RequestPostCards {...posts[2]} />
+              {posts.length > 0 && (<><RequestPostCards {...posts[30]} />
+                <RequestPostCards {...posts[12]} />
+                <RequestPostCards {...posts[24]} />
               </>
               )}
 

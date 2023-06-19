@@ -10,6 +10,7 @@ import { Singleuserpage } from '../Pages/Singleuserpage'
 import RaiseCharity from '../Pages/RaiseCharity'
 import PrivateRoute from './PrivateRoute'
 import Admin from '../Pages/Admin'
+import SinglePost from './SinglePost'
 
 
 const MainRoutes = () => {
@@ -30,7 +31,11 @@ const MainRoutes = () => {
         <Admin/>
         </PrivateRoute>}></Route>
 
+        <Route path='/single' element={<SinglePost/>}>
+
+          </Route>
       </Routes>
+
     </div>
   )
 }

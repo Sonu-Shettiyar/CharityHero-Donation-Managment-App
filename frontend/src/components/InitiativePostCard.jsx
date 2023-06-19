@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {
   Card,
   CardBody,
@@ -17,7 +18,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import axios from 'axios';
-const RequestPostCards = ({
+const InitiativePostCard = ({
   backers,
   category,
   days_Left,
@@ -29,14 +30,6 @@ const RequestPostCards = ({
   _id,
   want_money }) => {
 
-  const handleReject = (id) => {
-    axios.delete(`https://gifted-mittens-fly.cyclic.app/request/admin/delete/${id}`)
-      .then((res) => {
-
-        alert(`${id} deleted Succefully`)
-      })
-      .catch((err) => alert(err.message))
-  }
 
   const handleApproval = () => {
     const payload = {
@@ -100,7 +93,15 @@ const RequestPostCards = ({
 
 
         <Center mt={-25}>
-          <Text color={"#4a4545"} fontSize={"15px"}>Contribution Goal <span style={{
+                  <Text color={"#4a4545"} fontSize={"15px"}>contributed
+                  <span style={{
+            color: "green",
+            fontWeight: 900,paddingRight:"5px"
+          }}> &#x20b9;{want_money ? (want_money) : (Math.floor(Math.random() * 100) + 10000) / 2}</span>
+                      
+                      
+                      
+                      of  <span style={{
             color: "red",
             fontWeight: 900
           }}> &#x20b9;{want_money ? (want_money) : (Math.floor(Math.random() * 100) + 10000)}</span></Text>
@@ -119,15 +120,15 @@ const RequestPostCards = ({
         m={"auto"}
         mb={20}
       >
-        <Button variant='solid' w="50%" onClick={()=>handleApproval()} bg='#3dc151dd'>
-          Approve
+        <Button variant='solid' borderRadius={"100px"} w="100%" onClick={()=>handleApproval()} bg='#3dc151dd'>
+          See More
         </Button>
-        <Button variant='solid' w="50%" onClick={() => handleReject(_id)} bgColor='#c13d3ddd'>
-          Reject
-        </Button>
+       
       </Box>
     </Box>
   )
 }
 
-export default RequestPostCards
+
+
+export default InitiativePostCard
