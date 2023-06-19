@@ -1,6 +1,7 @@
 import { Box, Center, Grid, Progress, Spinner, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import RequestPostCards from './RequestPostCards'
+import InitiativePostCard from './InitiativePostCard'
 
 const AllInitiatives = () => {
   const [posts, setPosts] = useState([])
@@ -23,7 +24,7 @@ const AllInitiatives = () => {
               {
                   posts.length > 0?(<Grid templateColumns='repeat(3, 250px)' gap={100} >
                   {posts?.map((el, ind) => {
-                    return <RequestPostCards {...el} key={ind} />
+                    return <InitiativePostCard {...el} key={ind} />
                   })}
                   </Grid>) : (<>
                     <Spinner

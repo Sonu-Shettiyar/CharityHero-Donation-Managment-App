@@ -16,8 +16,8 @@ const Admin = () => {
 
       <Grid   
         templateColumns='1fr'  mt={-8} w={"100%"} >
-        <Box  >
           <AdminNavbar />
+        <Box  >
           <Box >
           <Tabs   >
               <Flex>

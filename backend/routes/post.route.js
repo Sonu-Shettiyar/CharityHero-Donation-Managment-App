@@ -43,6 +43,17 @@ postRouter.delete("/admin/delete/:postID", async (req, res) => {
   }
 });
 
+postRouter.post("/admin/add", async (req, res) => {
+  try {
+    const post = new PostModel(req.body);
+    await post.save();
+    res.json({ msg: "New post has been added", post: req.body });
+  } catch (err) {
+    res.json({ error: err.message });
+  }
+});
+
+
 // -------------------------Client Side-------------------------------
 
 
