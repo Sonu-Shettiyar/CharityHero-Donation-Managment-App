@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import "../styles/signup.css"
 import axios from "axios"
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [name ,setName] = useState("");
   const [email ,setEmail] = useState("");
   const [password ,setPassword] = useState("");
@@ -12,6 +13,7 @@ const SignUp = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
+ 
     const details = {name,email,password,mobile:number}
     
     fetch('https://gifted-mittens-fly.cyclic.app/users/register', {
@@ -20,13 +22,16 @@ const SignUp = () => {
       headers: {'Content-Type': 'application/json'}
     }).then(res=>res.json())
     .then(res => {
-      alert("New User Has been Added")
-      console.log(res);
+      if(res.status==200){
+        alert("New User Has been Added")
+        navigate(location.state)
+        console.log(res);
+      }else{
+        alert(res.error)
+      }
+     
     })
-    .catch(err=> console.log(err))
-
-    // axios.post("https://gifted-mittens-fly.cyclic.app/users/register",details)
-    // .then(res=>console.log(res))
+    .catch(err=> alert(err))
   }
 
 
