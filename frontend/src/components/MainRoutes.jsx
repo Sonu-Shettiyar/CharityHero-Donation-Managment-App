@@ -9,6 +9,7 @@ import SignUp from '../Pages/SignUp'
 import { Singleuserpage } from '../Pages/Singleuserpage'
 import RaiseCharity from '../Pages/RaiseCharity'
 import PrivateRoute from './PrivateRoute'
+import Admin from '../Pages/Admin'
 
 
 const MainRoutes = () => {
@@ -23,8 +24,10 @@ const MainRoutes = () => {
         <Route path='/signUp' element={<SignUp />}></Route>
         <Route path='/' element={<Home />}></Route>
         <Route path='/raise-charity' element={<PrivateRoute>
-
           <RaiseCharity />
+        </PrivateRoute>}></Route>
+        <Route path='/admin' element={<PrivateRoute>
+        <Admin/>
         </PrivateRoute>}></Route>
 
       </Routes>

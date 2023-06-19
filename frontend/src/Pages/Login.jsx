@@ -23,39 +23,19 @@ const Login = () => {
     const userData = { email, password }
     axios.post("https://gifted-mittens-fly.cyclic.app/users/login", userData)
       .then((res) => {
-        console.log(res)
-        localStorage.setItem("ch-token", res.data?.token)
-        if (res.data.msg === "User logged in successfully.") {
-         navigate("/raise-charity") 
-        }
-        // toast({
-        //   title: res.data.msg,
-        //   description:"Login Successfull..." ,
-        //   status: "success",
-        //   duration: 2000,
-        //   isClosable: true,
-        // })
-        // ToastComponent({
-        //   title: res.data.msg,
-        //   status: "success",
-        //   description:"Login successfull"
-        // })
-      }).catch((err) => {
-        // ToastComponent({
-        //   title: err.message,
-        //   status: "error",
-        //   description:"Login unsuccessfull"
-        // })
-      
-        // toast({
-        //   title: err.message,
-        //   description:"Login unuccessfull..." ,
-        //   status: "error",
-        //   duration: 9000,
-        //   isClosable: true,
-        // })
+          console.log(res)
+          localStorage.setItem("ch-token", res.data?.token)
+          alert(`${res.data.msg}`)
+         if(email=="admin@gmail.com"){
+          navigate("/admin")
+         }else{
+          navigate(location)
+         }
+      })
+      .catch((err) => {
+         alert(err)
     })
-    // navigate(location.state)
+  
   }
 
 
