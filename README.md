@@ -1,4 +1,4 @@
-# warlike-current-5989
+# Charity Hero
 
 This project was built during construct week Unit-6 with the help of five team members within five days. The main objective of this website is to provide a platform where a user can create a post to raise some charity funds against it. Here there is admin side, as well as the user side, are present. On the admin side, the admin can see the users who have registered, and post that is made, and accept the post or reject them whereas on the user side, there are different functionalities such as the new user has to register first, then can log in using the registered credentials. After successful login, the user can create a post which upon submitting will be sent to the admin for approval. If the admin approves it, it will be displayed on the campaign page. Also, the user can edit the post and delete it. The admin also has access to delete the post if required.
 
