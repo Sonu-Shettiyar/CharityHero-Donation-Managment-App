@@ -22,194 +22,54 @@ import {
 import { useToast } from '@chakra-ui/react';
 
 const Form1 = () => {
+  const [progress, setProgress] = useState(33.33);
+  const [name ,setName] = useState("");
+  const [location,setLocation] = useState("");
+  const [category ,setCategory] = useState("");
+  const [title,setTitle] = useState("");
+  const [raise_money , setRaiseMoney] = useState("");
+  const [description,setAbout] = useState("");
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   return (
     <>
-      <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-      FundRaiser Details
-      </Heading>
+   
       <Flex>
         <FormControl mr="5%">
           <FormLabel htmlFor="first-name" fontWeight={'normal'}>
-            First name
+            Fundraiser Name
           </FormLabel>
-          <Input id="first-name" placeholder="First name" />
-        </FormControl>
-
-        <FormControl>
-          <FormLabel htmlFor="last-name" fontWeight={'normal'}>
-            Last name
-          </FormLabel>
-          <Input id="last-name" placeholder="First name" />
+          <Input id="first-name" placeholder="Enter your name" onChange={(e)=>setName(e.target.value)}/>
         </FormControl>
       </Flex>
       <FormControl mt="2%">
         <FormLabel htmlFor="email" fontWeight={'normal'}>
-          Email address
+         Location
         </FormLabel>
-        <Input id="email" type="email" />
-        <FormHelperText>We'll never share your email.</FormHelperText>
+        <Input id="email" type="text"  placeholder='location' onChange={(e)=>setLocation(e.target.value)}/>
+        {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
+      </FormControl>
+      <FormControl mt="2%">
+        <FormLabel htmlFor="email" fontWeight={'normal'}>
+          Category
+        </FormLabel>
+        <Input id="email" type="text" placeholder={"Category"}  onChange={(e)=>setCategory(e.target.value)} />
+        {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
       </FormControl>
 
-      <FormControl>
-        <FormLabel htmlFor="password" fontWeight={'normal'} mt="2%">
-          Password
-        </FormLabel>
-        <InputGroup size="md">
-          <Input
-            pr="4.5rem"
-            type={show ? 'text' : 'password'}
-            placeholder="Enter password"
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </FormControl>
     </>
   );
 };
 
-const Form2 = () => {
-  return (
-    <>
-      <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-       Fundraiser Address
-      </Heading>
-      <FormControl as={GridItem} colSpan={[6, 3]}>
-        <FormLabel
-          htmlFor="country"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}>
-          Country / Region
-        </FormLabel>
-        <Select
-          id="country"
-          name="country"
-          autoComplete="country"
-          placeholder="Select option"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md">
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </Select>
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={6}>
-        <FormLabel
-          htmlFor="street_address"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          Street address
-        </FormLabel>
-        <Input
-          type="text"
-          name="street_address"
-          id="street_address"
-          autoComplete="street-address"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 6, null, 2]}>
-        <FormLabel
-          htmlFor="city"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          City
-        </FormLabel>
-        <Input
-          type="text"
-          name="city"
-          id="city"
-          autoComplete="city"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-        <FormLabel
-          htmlFor="state"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          State / Province
-        </FormLabel>
-        <Input
-          type="text"
-          name="state"
-          id="state"
-          autoComplete="state"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-        <FormLabel
-          htmlFor="postal_code"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          ZIP / Postal
-        </FormLabel>
-        <Input
-          type="text"
-          name="postal_code"
-          id="postal_code"
-          autoComplete="postal-code"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-    </>
-  );
-};
 
 const Form3 = () => {
+  const [progress, setProgress] = useState(33.33);
+  const [name ,setName] = useState("");
+  const [location,setLocation] = useState("");
+  const [category ,setCategory] = useState("");
+  const [title,setTitle] = useState("");
+  const [raise_money , setRaiseMoney] = useState("");
+  const [description,setAbout] = useState("");
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal">
@@ -231,11 +91,24 @@ const Form3 = () => {
               type="text"
               placeholder="Title"
               focusBorderColor="brand.400"
-              rounded="md"
+              rounded="md"  onChange={(e)=>setTitle(e.target.value)}
             />
           </InputGroup>
         </FormControl>
-
+        <FormControl mt="2%">
+        <FormLabel htmlFor="raise" fontWeight={'normal'}>
+          Raise_money
+        </FormLabel>
+        <Input id="money" type="number" placeholder='Money needed'  />
+        {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
+      </FormControl>
+      <FormControl mt="2%">
+        <FormLabel htmlFor="raise" fontWeight={'normal'}>
+         Upload Pictures
+        </FormLabel>
+        <Input id="money" type="file" placeholder='Money needed' onChange={(e)=>setRaiseMoney(e.target.value)} />
+        {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
+      </FormControl>
         <FormControl id="email" mt={1}>
           <FormLabel
             fontSize="sm"
@@ -254,11 +127,15 @@ const Form3 = () => {
             fontSize={{
               sm: 'sm',
             }}
+
+            onChange={(e)=>setAbout(e.target.value)}
           />
           <FormHelperText>
             Brief description for your cause.
           </FormHelperText>
+
         </FormControl>
+        
       </SimpleGrid>
     </>
   );
@@ -268,6 +145,38 @@ const RaiseCharity =() => {
   const toast = useToast();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(33.33);
+   const [name ,setName] = useState("");
+   const [location,setLocation] = useState("");
+   const [category ,setCategory] = useState("");
+   const [title,setTitle] = useState("");
+   const [raise_money , setRaiseMoney] = useState("");
+   const [description,setAbout] = useState("");
+
+
+ const handleSave = () =>{
+ const details =  {name , location ,category,title,raise_money,description};
+
+ fetch('https://gifted-mittens-fly.cyclic.app/requests/add', {
+  method: 'post',
+  body: JSON.stringify(details),
+  headers: {'Content-Type': 'application/json'}
+}).then(res=>res.json())
+.then(res => {
+  if(res.status==200){
+    alert("Post is requested")
+    // navigate(location.state)
+    console.log(res);
+  }else{
+    alert(res.error)
+  }
+})
+.catch(err=> alert(err))
+ }
+
+
+
+
+
   return (
     <>
       <Box
@@ -285,7 +194,7 @@ const RaiseCharity =() => {
           mb="5%"
           mx="5%"
           isAnimated></Progress>
-        {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
+        {step === 1 ? <Form1 /> : <Form3 />}
         <ButtonGroup mt="5%" w="100%">
           <Flex w="100%" justifyContent="space-between">
             <Flex>
@@ -322,9 +231,7 @@ const RaiseCharity =() => {
                 w="7rem"
                 colorScheme="red"
                 variant="solid"
-                onClick={() => {
-                 alert("Post is requested to the Charity Hero")
-                }}>
+                onClick={handleSave}>
                 Submit
               </Button>
             ) : null}
