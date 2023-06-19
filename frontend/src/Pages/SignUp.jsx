@@ -54,15 +54,15 @@ const SignUp = () => {
                 <h1>Charity<span>Hero</span>  <span> SignUp</span></h1>
                 
                 <br />
-                <input type="text" placeholder='Enter your Name' required onChange={(e)=>setName(e.target.value)}/>
+                <input type="text" placeholder='Enter your Name'  onChange={(e)=>setName(e.target.value)} required/>
                 <br />
-                <input type="number" placeholder='Enter your Mobile Number' required onChange={(e)=>setNumber(e.target.value)}/>
+                <input type="number" placeholder='Enter your Mobile Number'  onChange={(e)=>setNumber(e.target.value)} required/>
                 <br />
-                <input type="email" placeholder='Enter your email' required onChange={(e)=>setEmail(e.target.value)}/>
+                <input type="email" placeholder='Enter your email'  onChange={(e)=>setEmail(e.target.value)} required/>
                 <br />
-                <input type="password" placeholder='Password' required onChange={(e)=>setPassword(e.target.value)}/>
+                <input type="password" placeholder='Password'  onChange={(e)=>setPassword(e.target.value)} required/>
                 <br />
-                <button  onClick={handleSignup}>Sign Up</button>
+                <button onSubmit={handleSignup}>Sign Up</button>
                 <span>Already have an account ? <Link className='log-btn' to='/login'>Login</Link> </span>
 
           </form>
