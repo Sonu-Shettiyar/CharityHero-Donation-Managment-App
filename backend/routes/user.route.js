@@ -86,11 +86,12 @@ userRouter.get("/logout", (req, res) => {
   }
 });
 
-
+// ------------------For Admin Side-------------------------------
 //Get all user
 userRouter.get("/all-users", async (req, res) => {
+
   try {
-    const users = await UserModel.find();
+    const users = await UserModel.find(req.query);
 
     res.json({ users });
 
@@ -99,13 +100,12 @@ userRouter.get("/all-users", async (req, res) => {
   }
 });
 
-//delete
+//delete user
 userRouter.delete("/delete/:userID", async (req, res) => {
   const { userID } = req.params;
   try {
     await UserModel.findByIdAndDelete({ _id: userID });
     res.json({ msg: `user has been deleted` });
-
   } catch (err) {
     res.json({ error: err.message });
   }
