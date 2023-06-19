@@ -18,7 +18,7 @@ const Navbar = () => {
                 <Link to="/raise-charity"><button>Raise Charity</button></Link>
                 <Link to={"/explorcampain"}><button>Explore Campaign</button></Link>
                 <Link to={"#"}><button>About us</button></Link>
-                <Link to={"/admin"}><button>Admin</button></Link>
+                {/* <Link to={"/admin"}><button>Admin</button></Link> */}
 
             </div>
             <div className='menu2'>

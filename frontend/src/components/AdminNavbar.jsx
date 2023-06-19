@@ -3,7 +3,7 @@ import { Box, Heading, Image,Text } from '@chakra-ui/react'
 import logo from "../images/charityhero_logo.png"
 const AdminNavbar = () => {
   return (
-    <Box position={["sticky"]} bgColor={"white"} top={0} zIndex={9999}
+    <Box  position={["sticky"]}  left={"0px"} bgColor={"white"} top={0} zIndex={9999}
     p={{
       base: "10px",
       xl: "12px",
