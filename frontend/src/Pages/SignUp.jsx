@@ -13,9 +13,7 @@ const SignUp = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
- 
-    const details = {name,email,password,mobile:number}
-    
+    const details = {name,email,password,mobile:number}  
     fetch('https://gifted-mittens-fly.cyclic.app/users/register', {
       method: 'post',
       body: JSON.stringify(details),
@@ -28,8 +26,7 @@ const SignUp = () => {
         console.log(res);
       }else{
         alert(res.error)
-      }
-     
+      }  
     })
     .catch(err=> alert(err))
   }
