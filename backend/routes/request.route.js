@@ -3,9 +3,33 @@ const { auth } = require("../middleware/auth.middleware");
 const { RequestModel } = require("../model/request.model");
 
 const requestRouter = express.Router();
+// -----------------------for Admin side------------------------
+//get-for-admin
+requestRouter.get("/admin/get-request", async (req, res) => {
+  try {
+    const posts = await RequestModel.find();
+    res.send(posts);
+  } catch (err) {
+    res.json({ error: err.message });
+  }
+});
 
+
+//delete-for-admin
+requestRouter.delete("/admin/delete/:requestID", async (req, res) => {
+  const { requestID } = req.params;
+  try {
+    const request = await RequestModel.findOne({ _id: requestID });
+    await RequestModel.findByIdAndDelete({ _id: requestID });
+    res.json({ msg: `${request.title} has been deleted Succesfully` });
+
+  } catch (err) {
+    res.json({ error: err.message });
+  }
+});
+
+// -----------------------for Client side------------------------
 requestRouter.use(auth);
-
 //add a post
 requestRouter.post("/add", async (req, res) => {
   try {
@@ -53,7 +77,7 @@ requestRouter.delete("/delete/:requestID", async (req, res) => {
     const request = await RequestModel.findOne({ _id: requestID });
     const userIDinPostDoc = request.userID;
     if (userIDinUserDoc == userIDinPostDoc) {
-      await RequestModel.findByIdAndDelete({ _id: requestID }, req.body);
+      await RequestModel.findByIdAndDelete({ _id: requestID });
       res.json({ msg: `${request.title} has been deleted` });
     } else {
       res.json({ msg: "Not Authorized!!" });
@@ -62,6 +86,9 @@ requestRouter.delete("/delete/:requestID", async (req, res) => {
     res.json({ error: err });
   }
 });
+
+
+
 
 module.exports = {
   requestRouter,

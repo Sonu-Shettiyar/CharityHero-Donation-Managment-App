@@ -1,7 +1,12 @@
 import React from 'react'
-import { Box, Heading, Image,Text } from '@chakra-ui/react'
+import { Box, Button, Heading, Image,Text } from '@chakra-ui/react'
 import logo from "../images/charityhero_logo.png"
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 const AdminNavbar = () => {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+navigate("/login")
+  }
   return (
     <Box  position={["sticky"]}  left={"0px"} bgColor={"white"} top={0} zIndex={9999}
     p={{
@@ -41,8 +46,11 @@ const AdminNavbar = () => {
           <Heading>Admin Panel</Heading>
         </Box>
 
-        <Box></Box>
-      </Box>
+        <Box pr={10}>
+        {/* <Link textDecoration="none">Log Out</Link>
+         */}
+          <Button border={"none"} borderRadius={"100px"} p={2} onClick={()=>handleNavigate()} bg={"#c7875da0"}>Log Out</Button>
+        </Box>      </Box>
     </Box>
 
   )

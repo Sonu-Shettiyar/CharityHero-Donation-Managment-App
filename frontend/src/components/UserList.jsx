@@ -19,6 +19,7 @@ import "./UserTable.css";
 
 import React, { useEffect, useRef, useState } from 'react'
 import UserRow from './UserRow'
+import axios from 'axios';
 
 const UserList = () => {
     const [users, setUsers] = useState([])
@@ -32,25 +33,26 @@ const UserList = () => {
             .catch((err) => console.log(err, "error"))
     }
     const deleteUserById = (id) => {
-        fetch(`https://gifted-mittens-fly.cyclic.app/users/delete/${id}`)
-            .then((req) => req.json())
+        axios.delete(`https://gifted-mittens-fly.cyclic.app/users/delete/${id}`)
             .then((res) => {
-                console.log(res, "deleted")
-                // ----------------------add Toast here
-                alert("User deleted")
+                alert("User successfully deleted")
+                getAllUsers();
             })
-            .catch((err) => console.log(err, "error"))
-        alert(id)
+            .catch((err) => {
+                alert(err.message)
+            })
     }
     const handleSearch = (e) => {
         clearTimeout(search.current)
         search.current = setTimeout(() => {
-          fetch(`https://gifted-mittens-fly.cyclic.app/posts?q=${e.target.value}`)
-            .then((req) => req.json())
-            .then((res) => {setPosts(res)})
-            .catch((err) => console.log(err))
+            fetch(`https://gifted-mittens-fly.cyclic.app/users/all-users?q=${e.target.value}`)
+                .then((req) => req.json())
+                .then((res) => {
+                    setUsers(res.users)
+                })
+                .catch((err) => alert(err.message))
         }, 2000);
-      }
+    }
     useEffect(() => {
         getAllUsers();
     }, [])
@@ -74,13 +76,13 @@ const UserList = () => {
             <Box pl={25}><Text fontSize={"22px"} fontWeight={600}> User Detail's </Text></Box>
             <hr />
             <Center >
-        <Input w={"50%"} pl={"2%"} placeholder='Search here...' onChange={(e) => handleSearch(e)} border={"none"} borderBlockEnd={"5px solid #acb1b052"} borderRadius={"100px"} h={"40px"} />
-      </Center>
+                <Input w={"50%"} pl={"2%"} placeholder='Search here...' onChange={(e) => handleSearch(e)} border={"none"} borderBlockEnd={"5px solid #acb1b052"} borderRadius={"100px"} h={"40px"} />
+            </Center>
 
             <Box p={"1% 2% 0 2%"}>
                 <TableContainer >
                     <Table colorScheme='teal' >
-                        {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
+                        <TableCaption>@All Charity-Hero User</TableCaption>
                         <Thead bg={"#653719b1"}>
                             <Tr>
                                 <Th>ID</Th>
@@ -94,7 +96,6 @@ const UserList = () => {
                         <Tbody>
                             {
                                 users?.map((el, ind) => {
-                                    console.log(el, "user")
                                     return <UserRow {...el} deleteUserById={deleteUserById} key={ind} />
                                 })
                             }

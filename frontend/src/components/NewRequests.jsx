@@ -1,19 +1,19 @@
-import { Box, Center, Grid, Input, Text } from '@chakra-ui/react'
+import { Box, Center, Grid, Heading, Input, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import RequestPostCards from './RequestPostCards'
 import { useRef } from 'react'
+import axios, { Axios } from "axios";
 
 const NewRequests = () => {
   const [posts, setPosts] = useState([])
   const search = useRef()
   const getAllData = () => {
-    fetch("https://gifted-mittens-fly.cyclic.app/posts/")
-      .then((req) => req.json())
+    axios.get("https://gifted-mittens-fly.cyclic.app/request/admin/get-request")
       .then((res) => {
-        setPosts(res)
-
+        setPosts(res.data)
+        // console.log(res, "request-response ")
       })
-      .catch((err) => console.log(err))
+      .catch((err) => alert(err.message))
   }
 
   const handleSearch = (e) => {
@@ -21,13 +21,23 @@ const NewRequests = () => {
     search.current = setTimeout(() => {
       fetch(`https://gifted-mittens-fly.cyclic.app/posts?q=${e.target.value}`)
         .then((req) => req.json())
-        .then((res) => {setPosts(res)})
+        .then((res) => { setPosts(res) })
         .catch((err) => console.log(err))
-    }, 2000);
+    }, 1000);
   }
+
+
   useEffect(() => {
     getAllData()
   }, [])
+
+  if (posts.length === 0) {
+    return <Center>
+      <Heading>
+        No Request's
+      </Heading>
+    </Center>
+  }
   return (
     <>
       <Box pl={25}><Text fontSize={"22px"} fontWeight={600}> New Request's </Text>
@@ -41,7 +51,7 @@ const NewRequests = () => {
       <Center p={"1% 2% 0 2%"}>
         <Grid templateColumns='repeat(3, 250px)' gap={100} >
           {posts?.map((el, ind) => {
-            return <RequestPostCards {...el} key={ind} />
+            return <RequestPostCards props={el} key={ind} />
           })}
         </Grid>
       </Center></>
