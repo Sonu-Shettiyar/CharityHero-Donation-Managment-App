@@ -4,7 +4,7 @@ import "../styles/signup.css"
 import axios from "axios"
 
 const SignUp = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [name ,setName] = useState("");
   const [email ,setEmail] = useState("");
   const [password ,setPassword] = useState("");
@@ -14,22 +14,27 @@ const SignUp = () => {
   const handleSignup = (e) => {
     e.preventDefault();
     const details = {name,email,password,mobile:number}  
+
     fetch('https://gifted-mittens-fly.cyclic.app/users/register', {
       method: 'post',
       body: JSON.stringify(details),
       headers: {'Content-Type': 'application/json'}
     }).then(res=>res.json())
     .then(res => {
-      if(res.status==200){
-        alert("New User Has been Added")
-        navigate(location.state)
-        console.log(res);
-      }else{
-        alert(res.error)
-      }  
+      console.log(res);
+      console.log("hello");
     })
     .catch(err=> alert(err))
-  }
+  
+  // axios.post("https://gifted-mittens-fly.cyclic.app/users/register",details)
+  // .then((res)=>{
+  //   if(res.status==200){
+  //     console.log(res);
+  //   }
+  // })
+  // .catch(err=>console.log(err))
+  // 
+}
 
 
 
@@ -51,13 +56,13 @@ const SignUp = () => {
                 <h1>Charity<span>Hero</span>  <span> SignUp</span></h1>
                 
                 <br />
-                <input type="text" placeholder='Enter your Name'  onChange={(e)=>setName(e.target.value)} required/>
+                <input type="text" placeholder='Enter your Name'  value={name}  onChange={(e)=>setName(e.target.value)} required/>
                 <br />
-                <input type="number" placeholder='Enter your Mobile Number'  onChange={(e)=>setNumber(e.target.value)} required/>
+                <input type="number" placeholder='Enter your Mobile Number' value={number}  onChange={(e)=>setNumber(e.target.value)} required/>
                 <br />
-                <input type="email" placeholder='Enter your email'  onChange={(e)=>setEmail(e.target.value)} required/>
+                <input type="email" placeholder='Enter your email'  value={email} onChange={(e)=>setEmail(e.target.value)} required/>
                 <br />
-                <input type="password" placeholder='Password'  onChange={(e)=>setPassword(e.target.value)} required/>
+                <input type="password" placeholder='Password' value={password}  onChange={(e)=>setPassword(e.target.value)} required/>
                 <br />
                 <button onSubmit={handleSignup}>Sign Up</button>
                 <span>Already have an account ? <Link className='log-btn' to='/login'>Login</Link> </span>
