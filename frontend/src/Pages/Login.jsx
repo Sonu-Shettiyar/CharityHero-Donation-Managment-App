@@ -27,11 +27,9 @@ const Login = () => {
           localStorage.setItem("ch-token", res.data?.token)
         if (email == "admin@gmail.com") {
           alert(`Admin logged in Succesfully`)
-           
           navigate("/admin")
          } else {
           alert(`${res.data.msg}`)
-           
           navigate(location.pathname)
          }
       })
